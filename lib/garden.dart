@@ -102,10 +102,12 @@ class Garden extends StatefulWidget {
 }
 
 class _GardenState extends State<Garden> {
+  Plant draggedPlant;
   int incomingIndex = 1; // issue
   void _deletePlantFromList(Plant data, int index) {
     setState(() {
       // incomingIndex++; // issue
+      draggedPlant = data;
       print("successful drop?");
       successfulDrop[index] = true;
       plants.removeAt(data.getIndex());
@@ -140,7 +142,7 @@ class _GardenState extends State<Garden> {
                 builder: (BuildContext context, List<Plant> incoming,
                     List rejected) {
                   if (successfulDrop[index] == true) {
-                    return incoming[0]; // still issue
+                    return this.draggedPlant; // still issue
                   } else {
                     return Card(
                       color: Colors.brown[500],

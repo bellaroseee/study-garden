@@ -51,10 +51,11 @@ class _Science extends State<Science> {
     }
     if (sciencescore == 2) {
       itemNum++;
-      print(itemNum);
+      print('itemNum $itemNum');
       TileModel tileModel = new TileModel();
       tileModel.setImage(Image(image: AssetImage(itemsCollection[itemNum])));
       plants.add(tileModel);
+      print('plants: ${plants.length}');
       sciencescore = 0;
     }
   }
@@ -115,7 +116,6 @@ class _Science extends State<Science> {
               width: 300,
               alignment: Alignment(0, 0.3),
               child: TextField(
-                keyboardType: TextInputType.number,
                 decoration: InputDecoration(
                   labelText: "Enter your Answer",
                   fillColor: Colors.white,
