@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:garudahacks/data/data.dart';
 import 'package:garudahacks/models/TileModel.dart';
 
-List<TileModel> plants = new List<TileModel>(); // get this data from app state
+// List<TileModel> plants = new List<TileModel>(); // get this data from app state
+List<TileModel> plants = getPairs();
 Map<int, bool> successfulDrop = {
   0: false,
   1: false,
@@ -42,7 +43,10 @@ class VisitGarden extends StatelessWidget {
         title: 'Flutter Demo',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          primarySwatch: Colors.blue,
+          fontFamily: "Cairo",
+          textTheme:
+              Theme.of(context).textTheme.apply(displayColor: Colors.black),
+          visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
         home: Home(),
       );
@@ -66,9 +70,9 @@ class _HomeState extends State<Home> {
   }
 
   void reStart() {
-    myPairs = getPairs();
-    myPairs.shuffle();
-    plants = myPairs;
+    // myPairs = getPairs();
+    // myPairs.shuffle();
+    // plants = myPairs;
   }
 
   @override
@@ -142,7 +146,15 @@ class _GardenState extends State<Garden> {
                 builder: (BuildContext context, List<Plant> incoming,
                     List rejected) {
                   if (successfulDrop[index] == true) {
+<<<<<<< HEAD
                     return this.draggedPlant; // still issue
+=======
+                    // return incoming[0]; // still issue
+                    return Plant(
+                      plantImage: Image(image: AssetImage('assets/peach.png')),
+                      plantIndex: index,
+                    );
+>>>>>>> 474e72b54b409fbaca7d5fa937dc102afd762b9c
                   } else {
                     return Card(
                       color: Colors.brown[500],
@@ -180,7 +192,8 @@ class _StorageState extends State<PlanStorage> {
       margin: const EdgeInsets.fromLTRB(20, 60, 20, 20),
       height: 150,
       decoration: new BoxDecoration(
-        color: Colors.pink[100],
+        // color: Colors.pink[100],
+        color: Colors.transparent,
         borderRadius: BorderRadius.all(Radius.circular(50)),
       ),
       child: ListView.builder(
@@ -209,7 +222,13 @@ class _StorageState extends State<PlanStorage> {
                       _updateList();
                     },
                   )
-                : Container();
+                : Text(
+                    "Hello",
+                    style: Theme.of(context)
+                        .textTheme
+                        .headline4
+                        .copyWith(fontWeight: FontWeight.w900, fontSize: 80),
+                  );
           }),
     );
   }

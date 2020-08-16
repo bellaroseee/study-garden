@@ -19,20 +19,24 @@ List<TileModel> getPairs() {
   tileModel.setImage(Image(image: AssetImage('assets/peach.png')));
   pairs.add(tileModel);
   pairs.add(tileModel);
-  tileModel = new TileModel();
+  pairs.add(tileModel);
+  pairs.add(tileModel);
+  pairs.add(tileModel);
 
-  //2
-  tileModel.setImage(Image(image: AssetImage('assets/hippo.png')));
-  pairs.add(tileModel);
-  pairs.add(tileModel);
-  pairs.add(tileModel);
-  pairs.add(tileModel);
-  pairs.add(tileModel);
-  pairs.add(tileModel);
-  pairs.add(tileModel);
-  pairs.add(tileModel);
-  pairs.add(tileModel);
-  tileModel = new TileModel();
+  // tileModel = new TileModel();
+
+  // //2
+  // tileModel.setImage(Image(image: AssetImage('assets/hippo.png')));
+  // pairs.add(tileModel);
+  // pairs.add(tileModel);
+  // pairs.add(tileModel);
+  // pairs.add(tileModel);
+  // pairs.add(tileModel);
+  // pairs.add(tileModel);
+  // pairs.add(tileModel);
+  // pairs.add(tileModel);
+  // pairs.add(tileModel);
+  // tileModel = new TileModel();
 
   print("Done Creating Assets");
 
