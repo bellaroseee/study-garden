@@ -3,6 +3,9 @@ import 'package:garudahacks/doAssignment.dart';
 import 'package:garudahacks/question.dart';
 import 'package:garudahacks/math.dart';
 
+import 'garden.dart';
+import 'models/TileModel.dart';
+
 class Science extends StatefulWidget {
   @override
   _Science createState() => _Science();
@@ -48,9 +51,10 @@ class _Science extends State<Science> {
     }
     if (sciencescore == 2) {
       itemNum++;
-      String item = 'peach$itemNum.jpg';
-      print(item);
-      itemsOwned.add(item);
+      print(itemNum);
+      TileModel tileModel = new TileModel();
+      tileModel.setImage(Image(image: AssetImage(itemsCollection[itemNum])));
+      plants.add(tileModel);
       sciencescore = 0;
     }
   }

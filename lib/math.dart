@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:garudahacks/doAssignment.dart';
 import 'package:garudahacks/question.dart';
+import 'package:garudahacks/garden.dart';
+
+import 'models/TileModel.dart';
 
 class Math extends StatefulWidget {
   @override
@@ -9,8 +12,14 @@ class Math extends StatefulWidget {
 
 int mathcounter = 0;
 int mathscore = 0;
-int itemNum = 0;
-Set<String> itemsOwned = Set<String>();
+int itemNum = -1;
+List<String> itemsCollection = [
+  "fox.jpg",
+  "horse.jpg",
+  "beaver.jpg",
+  "panda.jpg",
+  "monkey.jpg"
+];
 
 class _Math extends State<Math> {
   List qList = [
@@ -38,9 +47,10 @@ class _Math extends State<Math> {
     }
     if (mathscore == 2) {
       itemNum++;
-      String item = 'peach$itemNum.jpg';
-      print(item);
-      itemsOwned.add(item);
+      print(itemNum);
+      TileModel tileModel = new TileModel();
+      tileModel.setImage(Image(image: AssetImage(itemsCollection[itemNum])));
+      plants.add(tileModel);
       mathscore = 0;
     }
   }
