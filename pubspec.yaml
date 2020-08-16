@@ -88,9 +88,6 @@ flutter:
   # see https://flutter.dev/custom-fonts/#from-packages
 
   fonts :
-    - family: BalooTamma
-      fonts:
-        - asset: assets/fonts/BalooTamma2-Regular.ttf
     - family: Cairo
       fonts:
         - asset: assets/fonts/Cairo/Cairo-Regular.ttf

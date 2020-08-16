@@ -68,7 +68,6 @@ class _HomeState extends State<Home> {
   void reStart() {
     myPairs = getPairs();
     myPairs.shuffle();
-
     plants = myPairs;
   }
 
@@ -82,12 +81,15 @@ class _HomeState extends State<Home> {
           width: MediaQuery.of(context).size.width,
           fit: BoxFit.cover,
         ),
-        Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            PlanStorage(),
-            Garden(),
-          ],
+        SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              PlanStorage(),
+              Garden(),
+            ],
+          ),
         ),
       ],
     );
@@ -100,8 +102,10 @@ class Garden extends StatefulWidget {
 }
 
 class _GardenState extends State<Garden> {
+  int incomingIndex = 1; // issue
   void _deletePlantFromList(Plant data, int index) {
     setState(() {
+      // incomingIndex++; // issue
       print("successful drop?");
       successfulDrop[index] = true;
       plants.removeAt(data.getIndex());
@@ -136,10 +140,7 @@ class _GardenState extends State<Garden> {
                 builder: (BuildContext context, List<Plant> incoming,
                     List rejected) {
                   if (successfulDrop[index] == true) {
-                    return Plant(
-                      plantImage: Image(image: AssetImage('assets/peach.png')),
-                      plantIndex: index,
-                    );
+                    return incoming[0]; // still issue
                   } else {
                     return Card(
                       color: Colors.brown[500],
@@ -185,26 +186,28 @@ class _StorageState extends State<PlanStorage> {
           scrollDirection: Axis.horizontal,
           itemCount: plants.length,
           itemBuilder: (context, index) {
-            return Draggable<Plant>(
-              data: Plant(
-                plantImage: Image(image: AssetImage('assets/peach.png')),
-                plantIndex: index,
-              ),
-              child: Plant(
-                plantImage: plants[index].getImage(),
-                plantIndex: index,
-              ),
-              feedback: Plant(
-                plantImage: plants[index].getImage(),
-                plantIndex: index,
-              ),
-              childWhenDragging: SizedBox(
-                width: 50,
-              ),
-              onDragCompleted: () {
-                _updateList();
-              },
-            );
+            return plants.length != 0
+                ? Draggable<Plant>(
+                    data: Plant(
+                      plantImage: Image(image: AssetImage('assets/peach.png')),
+                      plantIndex: index,
+                    ),
+                    child: Plant(
+                      plantImage: plants[index].getImage(),
+                      plantIndex: index,
+                    ),
+                    feedback: Plant(
+                      plantImage: plants[index].getImage(),
+                      plantIndex: index,
+                    ),
+                    childWhenDragging: SizedBox(
+                      width: 50,
+                    ),
+                    onDragCompleted: () {
+                      _updateList();
+                    },
+                  )
+                : Container();
           }),
     );
   }
