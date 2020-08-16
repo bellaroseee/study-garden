@@ -21,6 +21,7 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  url_launcher: ^5.4.0
   flutter:
     sdk: flutter
 
@@ -28,6 +29,7 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.3
+  flutter_svg: ^0.18.0
 
   # shared preferences
   shared_preferences: ^0.5.4+3
@@ -56,17 +58,9 @@ flutter:
     - assets/background.png
     - assets/peach.png
     - assets/ground.png
-    - assets/correct.png
-    - assets/fox.png
     - assets/hippo.png
-    - assets/horse.png
-    - assets/monkey.png
-    - assets/panda.png
-    - assets/parrot.png
-    - assets/question.png
-    - assets/rabbit.png
-    - assets/zoo.png
-    - assets/images/background.png
+    - assets/images/
+    - assets/icons/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 
@@ -97,3 +91,12 @@ flutter:
     - family: BalooTamma
       fonts:
         - asset: assets/fonts/BalooTamma2-Regular.ttf
+    - family: Cairo
+      fonts:
+        - asset: assets/fonts/Cairo/Cairo-Regular.ttf
+        - asset: assets/fonts/Cairo/Cairo-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Cairo/Cairo-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Cairo/Cairo-Black.ttf
+          weight: 900

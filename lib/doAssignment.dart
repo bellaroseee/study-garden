@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:garudahacks/math.dart';
 import 'package:garudahacks/science.dart';
-import 'package:garudahacks/main.dart';
+import 'main.dart';
 
 class DoAssignment extends StatelessWidget {
   @override
